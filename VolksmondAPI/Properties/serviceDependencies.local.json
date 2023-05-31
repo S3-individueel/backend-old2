@@ -1,14 +1,13 @@
 {
   "dependencies": {
-    "apis1": {
-      "type": "apis"
-    },
     "mssql1": {
-      "type": "mssql",
+      "secretStore": "LocalSecretsFile",
+      "resourceId": null,
+      "type": "mssql.local",
       "connectionId": "ConnectionStrings:VolksmondAPIContext"
     },
     "secrets1": {
-      "type": "secrets",
+      "type": "secrets.user",
       "dynamicId": null
     }
   }

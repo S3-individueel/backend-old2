@@ -1,4 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using VolksmondAPI.Data;
+using VolksmondAPI.Controllers;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<VolksmondAPIContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("VolksmondAPIContext") ?? throw new InvalidOperationException("Connection string 'VolksmondAPIContext' not found.")));
 
 // Add services to the container.
 
