@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using VolksmondAPI.Data;
 using VolksmondAPI.Controllers;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<VolksmondAPIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VolksmondAPIContext") ?? throw new InvalidOperationException("Connection string 'VolksmondAPIContext' not found.")));
@@ -16,11 +18,11 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
